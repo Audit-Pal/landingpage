@@ -11,7 +11,7 @@ export function Footer() {
                 {/* Brand Section */}
                 <div className="space-y-8 flex-1">
                     <div className="flex items-center gap-4">
-                        <Logo className="w-12 h-12" />
+                        <Logo className="w-16 h-16" />
                         <h2 className="text-3xl font-black uppercase tracking-[-0.02em] text-white">
                             AuditPal
                         </h2>
@@ -22,36 +22,25 @@ export function Footer() {
                 </div>
 
                 {/* Links Grid - Compact Right Aligned */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-12 md:gap-16">
-                    <FooterColumn
-                        title="Platform"
-                        links={[
-                            { label: "Benchmark", href: "#" },
-                            { label: "Agents", href: "#" },
-                            { label: "Playground", href: "#" }
-                        ]}
-                    />
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-12 md:gap-16">
                     <FooterColumn
                         title="Network"
                         links={[
-                            { label: "Validators", href: "#" },
-                            { label: "Miners", href: "#" },
-                            { label: "Stats", href: "#" }
+                            { label: "Subnet", href: "https://audit-subnet.vercel.app/" }
+                        ]}
+                    />
+                    <FooterColumn
+                        title="Platform"
+                        links={[
+                            { label: "Benchmark", href: "https://audit-subnet.vercel.app/optimize" },
+                            { label: "Playground", href: "https://audit-subnet.vercel.app/optimize" }
                         ]}
                     />
                     <FooterColumn
                         title="Resources"
                         links={[
-                            { label: "Docs", href: "#" },
-                            { label: "GitHub", href: "#" },
-                            { label: "Whitepaper", href: "#" }
-                        ]}
-                    />
-                    <FooterColumn
-                        title="Legal"
-                        links={[
-                            { label: "Privacy", href: "#" },
-                            { label: "Terms", href: "#" }
+                            { label: "Docs" },
+                            { label: "GitHub" }
                         ]}
                     />
                 </div>
@@ -60,21 +49,21 @@ export function Footer() {
             {/* Bottom Bar */}
             <div className="max-w-7xl mx-auto mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-600">
                 <div className="flex items-center gap-8">
-                    <p>© 2025 AuditPal Labs</p>
+                    <p>© 2026 AuditPal Labs</p>
                     <p className="hidden md:block">Decentralized on Bittensor</p>
                 </div>
 
-                <div className="flex items-center gap-6">
-                    <Link href="#" className="hover:text-kast-teal transition-colors">Twitter</Link>
-                    <Link href="#" className="hover:text-kast-teal transition-colors">Discord</Link>
-                    <Link href="#" className="hover:text-kast-teal transition-colors">Telegram</Link>
+                <div className="flex items-center gap-6 cursor-default">
+                    <span className="hover:text-kast-teal transition-colors">Twitter</span>
+                    <span className="hover:text-kast-teal transition-colors">Discord</span>
+                    <span className="hover:text-kast-teal transition-colors">Telegram</span>
                 </div>
             </div>
         </footer>
     );
 }
 
-function FooterColumn({ title, links }: { title: string, links: { label: string, href: string }[] }) {
+function FooterColumn({ title, links }: { title: string, links: { label: string, href?: string }[] }) {
     return (
         <div className="flex flex-col gap-6">
             <h4 className="text-white text-xs font-black uppercase tracking-[0.2em]">
@@ -82,13 +71,24 @@ function FooterColumn({ title, links }: { title: string, links: { label: string,
             </h4>
             <div className="flex flex-col gap-4">
                 {links.map((link, i) => (
-                    <Link
-                        key={i}
-                        href={link.href}
-                        className="text-zinc-500 hover:text-kast-teal text-sm font-bold uppercase tracking-wider transition-colors duration-300"
-                    >
-                        {link.label}
-                    </Link>
+                    link.href ? (
+                        <Link
+                            key={i}
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-zinc-500 hover:text-kast-teal text-sm font-bold uppercase tracking-wider transition-colors duration-300"
+                        >
+                            {link.label}
+                        </Link>
+                    ) : (
+                        <span
+                            key={i}
+                            className="text-zinc-500 hover:text-kast-teal text-sm font-bold uppercase tracking-wider transition-colors duration-300 cursor-default"
+                        >
+                            {link.label}
+                        </span>
+                    )
                 ))}
             </div>
         </div>

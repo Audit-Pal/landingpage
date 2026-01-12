@@ -13,7 +13,7 @@ export function Navbar() {
         <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 lg:px-12 py-4 backdrop-blur-md bg-black/10 border-b border-white/5">
             <div className="flex items-center gap-2 lg:gap-3">
                 <Link href="/" className="flex items-center gap-3 group">
-                    <Logo className="w-8 h-8 group-hover:scale-110 transition-transform duration-300" />
+                    <Logo className="w-10 h-10 group-hover:scale-110 transition-transform duration-300" />
                     <span className="text-xl font-bold tracking-tighter uppercase text-white hover:text-kast-teal transition-colors">
                         AuditPal
                     </span>
@@ -22,23 +22,22 @@ export function Navbar() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8 text-[13px] font-medium tracking-wide text-kast-gray">
-                <Link href="/about" className="hover:text-white transition-colors duration-200">
+                <span className="hover:text-white transition-colors duration-200 cursor-default">
                     About
-                </Link>
-                <Link href="/network" className="hover:text-white transition-colors duration-200">
-                    Network
-                </Link>
-                <Link href="/agents" className="hover:text-white transition-colors duration-200">
+                </span>
+                <span className="hover:text-white transition-colors duration-200 cursor-default">
                     Agents
-                </Link>
-                <Link href="/docs" className="hover:text-white transition-colors duration-200">
+                </span>
+                <span className="hover:text-white transition-colors duration-200 cursor-default">
                     Documentation
-                </Link>
+                </span>
             </div>
 
             <div className="flex items-center gap-4">
                 <Link
-                    href="/dashboard"
+                    href="https://audit-subnet.vercel.app/optimize"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="hidden sm:flex items-center gap-2 px-5 py-2 rounded-full border border-white/10 bg-white/5 text-sm font-medium text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 group"
                 >
                     Launch App
@@ -65,18 +64,15 @@ export function Navbar() {
                         className="absolute top-full left-0 right-0 bg-black border-b border-white/10 p-6 md:hidden flex flex-col gap-6 shadow-2xl"
                     >
                         <div className="flex flex-col gap-4 text-center">
-                            <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-zinc-400 hover:text-white transition-colors py-2">
+                            <span className="text-lg font-medium text-zinc-400 hover:text-white transition-colors py-2 cursor-default">
                                 About
-                            </Link>
-                            <Link href="/network" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-zinc-400 hover:text-white transition-colors py-2">
-                                Network
-                            </Link>
-                            <Link href="/agents" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-zinc-400 hover:text-white transition-colors py-2">
+                            </span>
+                            <span className="text-lg font-medium text-zinc-400 hover:text-white transition-colors py-2 cursor-default">
                                 Agents
-                            </Link>
-                            <Link href="/docs" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-zinc-400 hover:text-white transition-colors py-2">
+                            </span>
+                            <span className="text-lg font-medium text-zinc-400 hover:text-white transition-colors py-2 cursor-default">
                                 Documentation
-                            </Link>
+                            </span>
                         </div>
 
                     </motion.div>
