@@ -15,7 +15,7 @@ export function GlobalScale() {
     const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
     return (
-        <section ref={containerRef} className="pt-24 pb-12 px-6 bg-black relative overflow-hidden">
+        <section ref={containerRef} className="pt-24 pb-24 px-6 bg-black relative overflow-hidden">
             {/* Background Atmosphere */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-kast-teal/5 rounded-full blur-[160px] pointer-events-none" />
 
@@ -39,8 +39,8 @@ export function GlobalScale() {
                                 viewport={{ once: true }}
                                 className="text-4xl md:text-8xl font-black uppercase tracking-tight text-white leading-[1.1]"
                             >
-                                Specialized <br />
-                                <span className="inline-block pr-4 text-transparent bg-clip-text bg-gradient-to-r from-zinc-400 to-zinc-700">Audit Units</span>
+                                Your Code. <br />
+                                <span className="inline-block pr-4 text-transparent bg-clip-text bg-gradient-to-r from-zinc-400 to-zinc-700">Hardened.</span>
                             </motion.h2>
 
                             <motion.p
@@ -49,15 +49,28 @@ export function GlobalScale() {
                                 transition={{ delay: 0.2 }}
                                 className="text-zinc-500 text-lg md:text-xl font-medium max-w-lg leading-relaxed"
                             >
-                                A network of decentralized audit agents powered by Bittensor, providing uncompromising and transparent security analysis for smart contracts.
+                                The Agent integrates directly into your CI/CD pipeline. No more waiting. No more uncertainty.
                             </motion.p>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <MetricCard icon={Shield} label="Audits Done" value="2,480+" delay={0.1} />
-                            <MetricCard icon={Activity} label="Accuracy" value="99.98%" delay={0.2} />
-                            <MetricCard icon={Server} label="Validators" value="150+" delay={0.3} />
+                        <div className="space-y-6">
+                            <FeatureRow
+                                title="Immediate Feedback"
+                                description="Receive line-by-line security suggestions as you write."
+                                delay={0.1}
+                            />
+                            <FeatureRow
+                                title="Institutional Grade"
+                                description="Built on the same logic used to secure billions in TVL."
+                                delay={0.2}
+                            />
+                            <FeatureRow
+                                title="Zero False Positives"
+                                description="Sophisticated pruning ensures you only see critical risks."
+                                delay={0.3}
+                            />
                         </div>
+
 
                         <div>
                             <motion.div
@@ -69,7 +82,7 @@ export function GlobalScale() {
                                 <div className="flex items-center justify-between mb-4">
                                     <div className="flex items-center gap-2">
                                         <div className="w-1.5 h-1.5 rounded-full bg-kast-teal animate-pulse" />
-                                        <span className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest">Subnet #08 STATUS</span>
+                                        <span className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest">CI/CD STATUS</span>
                                     </div>
                                     <span className="text-[10px] text-kast-teal font-bold uppercase tracking-widest">Optimized</span>
                                 </div>
@@ -237,19 +250,21 @@ export function GlobalScale() {
     );
 }
 
-function MetricCard({ icon: Icon, label, value, delay }: { icon: any, label: string, value: string, delay: number }) {
+function FeatureRow({ title, description, delay }: { title: string, description: string, delay: number }) {
     return (
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay, duration: 0.5 }}
-            className="p-5 rounded-2xl bg-zinc-900/40 border border-white/5 hover:border-kast-teal/30 transition-colors group"
+            className="flex items-start gap-4 group"
         >
-            <div className="flex items-center gap-3 mb-3">
-                <Icon className="w-4 h-4 text-zinc-500 group-hover:text-kast-teal transition-colors" />
-                <span className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest">{label}</span>
+            <div className="mt-1 w-8 h-8 rounded-lg bg-zinc-900/50 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:border-kast-teal/30 transition-colors">
+                <Shield className="w-4 h-4 text-zinc-500 group-hover:text-kast-teal transition-colors" />
             </div>
-            <p className="text-2xl font-black text-white tracking-tight">{value}</p>
+            <div>
+                <h3 className="text-base font-bold text-white mb-1 group-hover:text-kast-teal transition-colors">{title}</h3>
+                <p className="text-sm text-zinc-500 leading-relaxed font-medium">{description}</p>
+            </div>
         </motion.div>
     );
 }

@@ -36,7 +36,7 @@ const testimonials = [
 
 export function SocialProof() {
     return (
-        <section className="pt-12 pb-24 px-6 bg-black overflow-hidden border-t border-white/5 relative">
+        <section className="pt-24 pb-24 px-6 bg-black overflow-hidden border-t border-white/5 relative">
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="flex flex-col lg:flex-row gap-16 items-center">
                     {/* Testimonials Grid - Uniform Cards */}
@@ -91,8 +91,8 @@ export function SocialProof() {
                                 transition={{ delay: 0.3 }}
                             >
                                 <div className="h-1 w-32 bg-kast-teal/50 rounded-full" />
-                                <p className="text-zinc-400 text-base md:text-lg font-bold uppercase tracking-[0.15em] max-w-[320px] leading-relaxed">
-                                    The global standard for<br />decentralized auditing.
+                                <p className="text-zinc-400 text-base md:text-xl font-bold uppercase tracking-[0.05em] max-w-[400px] leading-relaxed text-right">
+                                    "The standard for security has officially shifted from human-led to AI-driven."
                                 </p>
                             </motion.div>
                         </motion.div>

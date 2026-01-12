@@ -21,7 +21,7 @@ export function Hero() {
                         className="flex items-center gap-3"
                     >
                         <div className="w-2 h-2 rounded-full bg-kast-teal animate-pulse shadow-[0_0_10px_#1EBA98]" />
-                        <span className="text-kast-teal text-[10px] font-bold uppercase tracking-[0.4em]">Powered by Bittensor Subnet</span>
+                        <span className="text-kast-teal text-[10px] font-bold uppercase tracking-[0.4em]">Unbreakable by design</span>
                     </motion.div>
 
                     <motion.h1
@@ -30,8 +30,8 @@ export function Hero() {
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                         className="text-3xl sm:text-4xl md:text-7xl font-black uppercase tracking-[-0.02em] leading-[1.1] text-white"
                     >
-                        <span className="block md:whitespace-nowrap">Smart Contract</span>
-                        <span className="text-zinc-500 block">Auditors</span>
+                        <span className="block">Autonomous AI</span>
+                        <span className="text-zinc-500 block">Contract Assurance</span>
                     </motion.h1>
 
                     <motion.div
@@ -41,10 +41,10 @@ export function Hero() {
                         className="flex flex-col gap-4"
                     >
                         {[
-                            "Benchmark AI security units",
-                            "SCSVS verified control groups",
-                            "Verified by 150+ decentralized nodes",
-                            "Direct Solidity & Rust verification",
+                            "Audit in seconds.",
+                            "Deploy for years.",
+                            "Continuous Verification",
+                            "140+ Attack Vectors"
                         ].map((item, i) => (
                             <div key={i} className="flex items-center gap-3">
                                 <Check className="w-5 h-5 text-kast-teal" strokeWidth={3} />
@@ -60,7 +60,7 @@ export function Hero() {
                         className="flex flex-wrap items-center gap-4 mt-4"
                     >
                         <button className="w-full sm:w-auto px-8 py-4 bg-kast-teal text-black text-lg font-bold rounded-full hover:scale-105 transition-transform">
-                            Start Auditing
+                            Start Your First Audit
                         </button>
                         <button className="w-full sm:w-auto px-8 py-4 bg-transparent border border-white/20 text-white text-lg font-medium rounded-full hover:bg-white/5 transition-colors flex items-center justify-center gap-2">
                             Explore Agents <ArrowRight className="w-5 h-5" />

@@ -16,14 +16,24 @@ export function Benefits() {
                     viewport={{ once: true }}
                     className="text-4xl md:text-7xl font-bold uppercase tracking-[-0.04em] text-white text-center"
                 >
-                    Protocol Benefits, <span className="text-zinc-600">Evolved</span>
+                    Beyond <span className="text-zinc-600">Human Speed</span>
                 </motion.h2>
 
+                <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                    className="text-zinc-500 text-lg md:text-xl text-center max-w-3xl mx-auto leading-relaxed -mt-12 mb-12"
+                >
+                    Traditional audits are point-in-time and take weeks. Our agent provides Continuous Verification, scanning every commit in milliseconds. It doesn’t just find bugs; it proves mathematical correctness across 140+ attack vectors.
+                </motion.p>
+
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full">
-                    {/* Card 1: Advanced Deployment */}
+                    {/* Card 1 */}
                     <BenefitCard
-                        title="Autonomous Deploy"
-                        subtitle="Instant agent-led contract auditing across the subset."
+                        title="Static Analysis"
+                        subtitle="Real-time vulnerability detection."
                         index={0}
                     >
                         <div className="relative w-full h-full flex flex-col p-8 font-mono">
@@ -50,10 +60,10 @@ export function Benefits() {
                         </div>
                     </BenefitCard>
 
-                    {/* Card 2: Precision Benchmarking */}
+                    {/* Card 2 */}
                     <BenefitCard
-                        title="Quantum Benchmark"
-                        subtitle="Run rigorous SCSVS control groups with deterministic results."
+                        title="Formal Verification"
+                        subtitle="Logical proof of contract behavior."
                         index={1}
                     >
                         <div className="relative w-full h-full flex flex-col items-center justify-center p-8">
@@ -90,10 +100,10 @@ export function Benefits() {
                         </div>
                     </BenefitCard>
 
-                    {/* Card 3: Incentivized Nodes */}
+                    {/* Card 3 */}
                     <BenefitCard
-                        title="Incentivized Yield"
-                        subtitle="Validators and miners earn yield in TAO for compute."
+                        title="Dynamic Fuzzing"
+                        subtitle="Millions of edge cases, simulated instantly."
                         index={2}
                     >
                         <div className="relative w-full h-full flex flex-col p-8">
