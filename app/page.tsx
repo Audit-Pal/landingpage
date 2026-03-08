@@ -13,10 +13,14 @@ export default function Home() {
             <Navbar />
             <Hero />
             <Logos />
-            <Benefits />
+            <div id="about">
+                <Benefits />
+            </div>
             <GlobalScale />
             {/* <SocialProof /> */}
-            <FAQ />
+            <div id="faq">
+                <FAQ />
+            </div>
             <Footer />
         </main>
     );

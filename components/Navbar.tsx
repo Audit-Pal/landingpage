@@ -26,12 +26,20 @@ export function Navbar() {
 
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center gap-8 text-[13px] font-medium tracking-wide text-kast-gray">
-                    <span className="hover:text-white transition-colors duration-200 cursor-default">
+                    <Link
+                        href="/#about"
+                        className="hover:text-white transition-colors duration-200"
+                    >
                         About
-                    </span>
-                    <span className="hover:text-white transition-colors duration-200 cursor-default">
-                        Agents
-                    </span>
+                    </Link>
+                    <Link
+                        href="https://subnet.auditpal.io/network"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-white transition-colors duration-200"
+                    >
+                        Network
+                    </Link>
                     <Link
                         href="/docs"
                         className="hover:text-white transition-colors duration-200"
@@ -71,15 +79,26 @@ export function Navbar() {
                             className="absolute top-full left-0 right-0 bg-black border-b border-white/10 p-6 md:hidden flex flex-col gap-6 shadow-2xl"
                         >
                             <div className="flex flex-col gap-4 text-center">
-                                <span className="text-lg font-medium text-zinc-400 hover:text-white transition-colors py-2 cursor-default">
+                                <Link
+                                    href="/#about"
+                                    className="text-lg font-medium text-zinc-400 hover:text-white transition-colors py-2"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
                                     About
-                                </span>
-                                <span className="text-lg font-medium text-zinc-400 hover:text-white transition-colors py-2 cursor-default">
-                                    Agents
-                                </span>
+                                </Link>
+                                <Link
+                                    href="https://subnet.auditpal.io/network"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-lg font-medium text-zinc-400 hover:text-white transition-colors py-2"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    Network
+                                </Link>
                                 <Link
                                     href="/docs"
                                     className="text-lg font-medium text-zinc-400 hover:text-white transition-colors py-2"
+                                    onClick={() => setIsMobileMenuOpen(false)}
                                 >
                                     Documentation
                                 </Link>

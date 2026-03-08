@@ -1,10 +1,38 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Terminal, Shield, Cpu, Activity, Zap, Globe, Lock, Target, Radio, Database, Server } from "lucide-react";
 
 export function GlobalScale() {
+    const [stats, setStats] = useState({
+        avgScore: 35.5,
+        isReal: false
+    });
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await fetch('/api/subnet/validation/sessions/stats?timeRange=24h');
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.is_real) {
+                        setStats({
+                            avgScore: (data.avg_reward_score ?? 0) * 100,
+                            isReal: true
+                        });
+                    }
+                }
+            } catch (error) {
+                console.error("Failed to fetch GlobalScale metrics:", error);
+            }
+        };
+
+        fetchData();
+        const interval = setInterval(fetchData, 60000);
+        return () => clearInterval(interval);
+    }, []);
+
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -82,19 +110,19 @@ export function GlobalScale() {
                                 <div className="flex items-center justify-between mb-4">
                                     <div className="flex items-center gap-2">
                                         <div className="w-1.5 h-1.5 rounded-full bg-kast-teal animate-pulse" />
-                                        <span className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest">CI/CD STATUS</span>
+                                        <span className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest">NETWORK STATUS</span>
                                     </div>
-                                    <span className="text-[10px] text-kast-teal font-bold uppercase tracking-widest">Optimized</span>
+                                    <span className="text-[10px] text-kast-teal font-bold uppercase tracking-widest">ACTIVE</span>
                                 </div>
                                 <div className="space-y-2">
                                     <div className="flex justify-between text-[9px] uppercase font-bold text-zinc-500">
-                                        <span>Computational Load</span>
-                                        <span>74.2%</span>
+                                        <span>AVERAGE SESSION SCORE (24H)</span>
+                                        <span>{stats.avgScore.toFixed(1)}%</span>
                                     </div>
                                     <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
                                         <motion.div
                                             initial={{ width: 0 }}
-                                            whileInView={{ width: "74.2%" }}
+                                            whileInView={{ width: `${stats.avgScore}%` }}
                                             transition={{ duration: 1.5, ease: "easeOut" }}
                                             className="h-full bg-kast-teal"
                                         />

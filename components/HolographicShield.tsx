@@ -6,20 +6,29 @@ import { useEffect, useState } from "react";
 
 export function HolographicShield() {
     const [stats, setStats] = useState({
-        completed: 175, // Default placeholder
-        score: 35.5 // Default placeholder
+        validators: 2,
+        miners: 5,
+        isReal: false
     });
 
     useEffect(() => {
         const fetchStats = async () => {
             try {
-                const response = await fetch('/api/subnet/validation/sessions/stats?timeRange=7d');
-                if (response.ok) {
-                    const data = await response.json();
-                    if (data.is_real) {
+                // Fetch from more reliable local aggregation endpoints to avoid zero-stats issue
+                const [valRes, minRes] = await Promise.all([
+                    fetch('/api/subnet/validators?timeRange=7d'),
+                    fetch('/api/subnet/miners?timeRange=7d')
+                ]);
+
+                if (valRes.ok && minRes.ok) {
+                    const validators = await valRes.json();
+                    const miners = await minRes.json();
+
+                    if (Array.isArray(validators) || Array.isArray(miners)) {
                         setStats({
-                            completed: data.completed_sessions || 0,
-                            score: (data.avg_reward_score || 0) * 100
+                            validators: Array.isArray(validators) ? validators.length : 0,
+                            miners: Array.isArray(miners) ? miners.length : 0,
+                            isReal: true
                         });
                     }
                 }
@@ -101,17 +110,20 @@ export function HolographicShield() {
 
                             {/* Text */}
                             <h3 className="text-lg font-bold text-white tracking-widest uppercase mb-1 leading-tight">Smart Contract<br />Auditor</h3>
-                            <p className="text-[10px] text-kast-teal font-mono tracking-widest uppercase mb-6">EVM Compatible</p>
+                            <div className="flex items-center gap-1.5 mb-6">
+                                <p className="text-[10px] text-kast-teal font-mono tracking-widest uppercase">EVM Compatible</p>
+                                <span className="text-[8px] px-1.5 py-0.5 rounded-sm bg-kast-teal/20 text-kast-teal font-black animate-pulse border border-kast-teal/30">LIVE</span>
+                            </div>
 
                             {/* Stats Row - Compact & Centered */}
                             <div className="w-full max-w-[220px] grid grid-cols-2 gap-2 border-t border-white/10 pt-4">
-                                <div className="flex flex-col items-center p-2 rounded-lg bg-white/5">
-                                    <span className="text-lg font-bold text-white font-mono">{stats.completed}</span>
-                                    <span className="text-[8px] text-zinc-400 uppercase tracking-wider">Audit Sessions</span>
+                                <div className="flex flex-col items-center p-2 rounded-lg bg-white/5 border border-white/5">
+                                    <span className="text-lg font-bold text-white font-mono">{stats.validators}</span>
+                                    <span className="text-[8px] text-zinc-400 uppercase tracking-wider">Validators</span>
                                 </div>
-                                <div className="flex flex-col items-center p-2 rounded-lg bg-white/5">
-                                    <span className="text-lg font-bold text-kast-teal font-mono">{stats.score.toFixed(1)}%</span>
-                                    <span className="text-[8px] text-zinc-400 uppercase tracking-wider">Avg Session Score</span>
+                                <div className="flex flex-col items-center p-2 rounded-lg bg-white/5 border border-white/5">
+                                    <span className="text-lg font-bold text-white font-mono">{stats.miners}</span>
+                                    <span className="text-[8px] text-zinc-400 uppercase tracking-wider">Miners</span>
                                 </div>
                             </div>
                         </div>
