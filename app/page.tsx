@@ -15,7 +15,7 @@ export default function Home() {
             <Logos />
             <Benefits />
             <GlobalScale />
-            <SocialProof />
+            {/* <SocialProof /> */}
             <FAQ />
             <Footer />
         </main>

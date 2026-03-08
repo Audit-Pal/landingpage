@@ -33,9 +33,7 @@ export function Navbar() {
                         Agents
                     </span>
                     <Link
-                        href="https://www.gitbook.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href="/docs"
                         className="hover:text-white transition-colors duration-200"
                     >
                         Documentation
@@ -80,9 +78,7 @@ export function Navbar() {
                                     Agents
                                 </span>
                                 <Link
-                                    href="https://www.gitbook.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                    href="/docs"
                                     className="text-lg font-medium text-zinc-400 hover:text-white transition-colors py-2"
                                 >
                                     Documentation

@@ -2,8 +2,37 @@
 
 import { motion } from "framer-motion";
 import { Shield, Check, Lock, Zap } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export function HolographicShield() {
+    const [stats, setStats] = useState({
+        completed: 175, // Default placeholder
+        score: 35.5 // Default placeholder
+    });
+
+    useEffect(() => {
+        const fetchStats = async () => {
+            try {
+                const response = await fetch('/api/subnet/validation/sessions/stats?timeRange=7d');
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.is_real) {
+                        setStats({
+                            completed: data.completed_sessions || 0,
+                            score: (data.avg_reward_score || 0) * 100
+                        });
+                    }
+                }
+            } catch (error) {
+                console.error("Failed to fetch real-time subnet stats:", error);
+            }
+        };
+
+        fetchStats();
+        const interval = setInterval(fetchStats, 60000); // Sync every 60s
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <div className="relative w-[320px] h-[400px] perspective-[1000px] group flex items-center justify-center scale-[0.6] sm:scale-75 md:scale-90">
             <motion.div
@@ -77,12 +106,12 @@ export function HolographicShield() {
                             {/* Stats Row - Compact & Centered */}
                             <div className="w-full max-w-[220px] grid grid-cols-2 gap-2 border-t border-white/10 pt-4">
                                 <div className="flex flex-col items-center p-2 rounded-lg bg-white/5">
-                                    <span className="text-lg font-bold text-white">$420M</span>
-                                    <span className="text-[8px] text-zinc-400 uppercase tracking-wider">Secured</span>
+                                    <span className="text-lg font-bold text-white font-mono">{stats.completed}</span>
+                                    <span className="text-[8px] text-zinc-400 uppercase tracking-wider">Audit Sessions</span>
                                 </div>
                                 <div className="flex flex-col items-center p-2 rounded-lg bg-white/5">
-                                    <span className="text-lg font-bold text-kast-teal">127</span>
-                                    <span className="text-[8px] text-zinc-400 uppercase tracking-wider">Vulns Found</span>
+                                    <span className="text-lg font-bold text-kast-teal font-mono">{stats.score.toFixed(1)}%</span>
+                                    <span className="text-[8px] text-zinc-400 uppercase tracking-wider">Avg Session Score</span>
                                 </div>
                             </div>
                         </div>

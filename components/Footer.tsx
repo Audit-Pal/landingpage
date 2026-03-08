@@ -34,7 +34,7 @@ export function Footer() {
                     <FooterColumn
                         title="Resources"
                         links={[
-                            { label: "Docs", href: "https://www.gitbook.com/" },
+                            { label: "Docs", href: "/docs" },
                             { label: "GitHub", href: "https://github.com/Audit-Pal" }
                         ]}
                     />
@@ -51,7 +51,7 @@ export function Footer() {
                 <div className="flex items-center gap-6 cursor-default">
                     <a href="https://x.com/auditpal_io" target="_blank" rel="noopener noreferrer" className="hover:text-kast-teal transition-colors">Twitter</a>
                     <a href="https://discord.com/invite/bittensor" target="_blank" rel="noopener noreferrer" className="hover:text-kast-teal transition-colors">Subnet Discord</a>
-                    <a href="https://www.gitbook.com/" target="_blank" rel="noopener noreferrer" className="hover:text-kast-teal transition-colors">GitBook</a>
+                    <Link href="/docs" className="hover:text-kast-teal transition-colors">Documentation</Link>
                 </div>
             </div>
         </footer>
@@ -70,8 +70,8 @@ function FooterColumn({ title, links }: { title: string, links: { label: string,
                         <Link
                             key={i}
                             href={link.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            target={link.href.startsWith("http") ? "_blank" : undefined}
+                            rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                             className="text-zinc-500 hover:text-kast-teal text-sm font-bold uppercase tracking-wider transition-colors duration-300"
                         >
                             {link.label}

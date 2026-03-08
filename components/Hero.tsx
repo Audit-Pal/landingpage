@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Check, ArrowRight } from "lucide-react";
 import { Globe } from "@/components/Globe";
 import { HolographicShield } from "@/components/HolographicShield";
+import Link from "next/link";
 
 export function Hero() {
     return (
@@ -67,14 +68,12 @@ export function Hero() {
                         >
                             Start Your First Audit
                         </a>
-                        <a
-                            href="https://www.gitbook.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <Link
+                            href="/docs"
                             className="w-full sm:w-auto px-8 py-4 bg-transparent border border-white/20 text-white text-lg font-medium rounded-full hover:bg-white/5 transition-colors flex items-center justify-center gap-2"
                         >
                             Read Docs <ArrowRight className="w-5 h-5" />
-                        </a>
+                        </Link>
                     </motion.div>
 
                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 mt-8">
@@ -90,7 +89,7 @@ export function Hero() {
                             ))}
                         </div>
                         <p className="text-[10px] sm:text-xs font-bold text-white uppercase tracking-[0.15em] sm:tracking-[0.25em] leading-tight max-w-[200px] sm:max-w-none">
-                            Trusted by 500+ developers worldwide
+                            Trusted by developers worldwide
                         </p>
                     </div>
                 </div>
