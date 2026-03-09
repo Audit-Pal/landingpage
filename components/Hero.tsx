@@ -21,18 +21,18 @@ export function Hero() {
                         transition={{ duration: 0.8 }}
                         className="flex items-center gap-3"
                     >
-                        <div className="w-2 h-2 rounded-full bg-kast-teal animate-pulse shadow-[0_0_10px_#1EBA98]" />
-                        <span className="text-kast-teal text-[10px] font-bold uppercase tracking-[0.4em]">Unbreakable by design</span>
+                        {/* <div className="w-2 h-2 rounded-full bg-kast-teal animate-pulse shadow-[0_0_10px_#1EBA98]" /> */}
+                        {/* <span className="text-kast-teal text-[10px] font-bold uppercase tracking-[0.4em]">Unbreakable by design</span> */}
                     </motion.div>
 
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-3xl sm:text-4xl md:text-7xl font-black uppercase tracking-[-0.02em] leading-[1.1] text-white"
+                        className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-black uppercase tracking-[-0.02em] leading-[1.15] text-white"
                     >
-                        <span className="block"> AI Agents For</span>
-                        <span className="text-zinc-500 block">Solidity Security</span>
+                        <span className="block"> operating system</span>
+                        <span className="block">FOR <span className="text-zinc-500">SMART CONTRACT AUDITS</span></span>
                     </motion.h1>
 
                     <motion.div
@@ -42,10 +42,10 @@ export function Hero() {
                         className="flex flex-col gap-4"
                     >
                         {[
-                            "Audit in seconds.",
-                            "Deploy for years.",
-                            "Continuous Verification",
-                            "140+ Attack Vectors"
+                            "Continuous Security Intelligence",
+                            "AI-Assisted Audit Workspace",
+                            "Automated Analysis Engine",
+                           
                         ].map((item, i) => (
                             <div key={i} className="flex items-center gap-3">
                                 <Check className="w-5 h-5 text-kast-teal" strokeWidth={3} />
@@ -66,19 +66,20 @@ export function Hero() {
                             rel="noopener noreferrer"
                             className="w-full sm:w-auto px-8 py-4 bg-kast-teal text-black text-lg font-bold rounded-full hover:scale-105 transition-transform text-center"
                         >
-                            Start Your First Audit
+                            Try Auditor Co-Pilot
                         </a>
                         <Link
-                            href="/docs"
+                            href="http://subnet.auditpal.io/"
                             className="w-full sm:w-auto px-8 py-4 bg-transparent border border-white/20 text-white text-lg font-medium rounded-full hover:bg-white/5 transition-colors flex items-center justify-center gap-2"
                         >
-                            Read Docs <ArrowRight className="w-5 h-5" />
+                            Competition Portal
+ <ArrowRight className="w-5 h-5" />
                         </Link>
                     </motion.div>
 
                     <div className="flex items-center gap-5 mt-8">
                         <p className="text-[10px] sm:text-xs font-bold text-white uppercase tracking-[0.15em] sm:tracking-[0.25em] leading-tight">
-                            Trusted by developers worldwide
+                            Powered by bittensor 
                         </p>
                     </div>
                 </div>

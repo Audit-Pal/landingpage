@@ -27,18 +27,18 @@ export function Navbar() {
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center gap-8 text-[13px] font-medium tracking-wide text-kast-gray">
                     <Link
-                        href="/#about"
-                        className="hover:text-white transition-colors duration-200"
-                    >
-                        About
-                    </Link>
-                    <Link
                         href="https://subnet.auditpal.io"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:text-white transition-colors duration-200"
                     >
                         Network
+                    </Link>
+                    <Link
+                        href="/docs"
+                        className="hover:text-white transition-colors duration-200"
+                    >
+                        API
                     </Link>
                     <Link
                         href="/docs"
@@ -80,13 +80,6 @@ export function Navbar() {
                         >
                             <div className="flex flex-col gap-4 text-center">
                                 <Link
-                                    href="/#about"
-                                    className="text-lg font-medium text-zinc-400 hover:text-white transition-colors py-2"
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                >
-                                    About
-                                </Link>
-                                <Link
                                     href="https://subnet.auditpal.io"
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -94,6 +87,13 @@ export function Navbar() {
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
                                     Network
+                                </Link>
+                                <Link
+                                    href="/docs"
+                                    className="text-lg font-medium text-zinc-400 hover:text-white transition-colors py-2"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    API
                                 </Link>
                                 <Link
                                     href="/docs"

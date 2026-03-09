@@ -17,7 +17,8 @@ export function Footer() {
                         </h2>
                     </div>
                     <p className="text-zinc-500 text-lg font-medium max-w-sm leading-relaxed">
-                        Join the 12 + teams building the next generation of Smart contract auditing on an unbreakable foundation.
+An AI-first auditing workflow where intelligent agents perform continuous analysis, simulation, and exploit discovery.
+
                     </p>
                 </div>
 

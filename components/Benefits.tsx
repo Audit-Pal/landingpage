@@ -75,7 +75,7 @@ export function Benefits() {
                     transition={{ delay: 0.2 }}
                     className="text-zinc-500 text-lg md:text-xl text-center max-w-3xl mx-auto leading-relaxed -mt-12 mb-12"
                 >
-                    Traditional audits are point-in-time and take weeks. Our agent provides Continuous Verification, scanning every commit in milliseconds. It doesn’t just find bugs; it proves mathematical correctness across 140+ attack vectors.
+                    Traditional audits are point-in-time and take weeks. Our agents perform continuous real-time analysis, attack simulations, and exploit discovery at machine speed to increase efficiency and frees auditors to focus on business logic, protocol design, and critical risk decisions.
                 </motion.p>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full">
