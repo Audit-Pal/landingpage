@@ -76,19 +76,8 @@ export function Hero() {
                         </Link>
                     </motion.div>
 
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 mt-8">
-                        <div className="flex -space-x-3">
-                            {[1, 2, 3].map(i => (
-                                <div key={i} className="w-9 h-9 rounded-full border border-black overflow-hidden bg-zinc-800 ring-2 ring-black">
-                                    <img
-                                        src={`/avatar-${i}.png`}
-                                        alt={`Developer ${i}`}
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                        <p className="text-[10px] sm:text-xs font-bold text-white uppercase tracking-[0.15em] sm:tracking-[0.25em] leading-tight max-w-[200px] sm:max-w-none">
+                    <div className="flex items-center gap-5 mt-8">
+                        <p className="text-[10px] sm:text-xs font-bold text-white uppercase tracking-[0.15em] sm:tracking-[0.25em] leading-tight">
                             Trusted by developers worldwide
                         </p>
                     </div>

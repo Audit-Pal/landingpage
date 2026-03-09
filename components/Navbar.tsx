@@ -33,7 +33,7 @@ export function Navbar() {
                         About
                     </Link>
                     <Link
-                        href="https://subnet.auditpal.io/network"
+                        href="https://subnet.auditpal.io"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:text-white transition-colors duration-200"
@@ -87,7 +87,7 @@ export function Navbar() {
                                     About
                                 </Link>
                                 <Link
-                                    href="https://subnet.auditpal.io/network"
+                                    href="https://subnet.auditpal.io"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-lg font-medium text-zinc-400 hover:text-white transition-colors py-2"
