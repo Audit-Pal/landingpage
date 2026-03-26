@@ -35,7 +35,7 @@ An AI-first auditing workflow where intelligent agents perform continuous analys
                     <FooterColumn
                         title="Resources"
                         links={[
-                            { label: "Docs", href: "/docs" },
+                            { label: "Docs", href: "https://docs.auditpal.io" },
                             { label: "GitHub", href: "https://github.com/Audit-Pal" }
                         ]}
                     />
@@ -52,7 +52,7 @@ An AI-first auditing workflow where intelligent agents perform continuous analys
                 <div className="flex items-center gap-6 cursor-default">
                     <a href="https://x.com/auditpal_io" target="_blank" rel="noopener noreferrer" className="hover:text-kast-teal transition-colors">Twitter</a>
                     <a href="https://discord.com/invite/bittensor" target="_blank" rel="noopener noreferrer" className="hover:text-kast-teal transition-colors">Subnet Discord</a>
-                    <Link href="/docs" className="hover:text-kast-teal transition-colors">Documentation</Link>
+                    <Link href="https://docs.auditpal.io" className="hover:text-kast-teal transition-colors" target="_blank" rel="noopener noreferrer">Documentation</Link>
                 </div>
             </div>
         </footer>

@@ -35,13 +35,17 @@ export function Navbar() {
                         Network
                     </Link>
                     <Link
-                        href="/docs"
+                        href="https://docs.auditpal.io"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="hover:text-white transition-colors duration-200"
                     >
                         API
                     </Link>
                     <Link
-                        href="/docs"
+                        href="https://docs.auditpal.io"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="hover:text-white transition-colors duration-200"
                     >
                         Documentation
@@ -89,14 +93,18 @@ export function Navbar() {
                                     Network
                                 </Link>
                                 <Link
-                                    href="/docs"
+                                    href="https://docs.auditpal.io"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="text-lg font-medium text-zinc-400 hover:text-white transition-colors py-2"
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
                                     API
                                 </Link>
                                 <Link
-                                    href="/docs"
+                                    href="https://docs.auditpal.io"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="text-lg font-medium text-zinc-400 hover:text-white transition-colors py-2"
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
